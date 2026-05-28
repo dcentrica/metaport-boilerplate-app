@@ -41,9 +41,9 @@ jobs:
               }
             }' > payload.json
 
-          curl --fail-with-body -sS -X PUT \
+          curl --fail-with-body -X PUT \
             -H "User-Agent: metaport-ci" \
             -H "Content-Type: application/json" \
             -H "Authorization: Basic ${APP_API_TOKEN}" \
             -d @payload.json \
-            ${METAPORT_SERVER}/api/v1/app/
+            ${METAPORT_SERVER}/api/v1/app

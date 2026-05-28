@@ -40,7 +40,7 @@ Metaport requires a minimal JSON payload to be sent for every action-trigger. Th
 
 **Notes:**
 
-* When using Github actions, a `payload.json` file is written for you automatically (See the `.github` director for the single workflow).
+* When using Github actions, a `payload.json` file is written for you automatically (See the `.github` directory for the metaport workflow).
 * The workflow at [.github/workflows/metaport-release.yml](.github/workflows/metaport-release.yml) triggers on any tag matching `v*` (e.g. `v1.2.3`) and `PUT`s the `MetaportIngest` payload.
 * The payload schema, endpoint, and required headers are defined in the [Metaport EOL Manager docs](https://docs.metaport.sh/en/eolmanager/).
 

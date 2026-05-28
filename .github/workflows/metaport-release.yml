@@ -15,17 +15,18 @@ jobs:
 
       - name: PUT release to Metaport
         env:
-          METAPORT_TOKEN: ${{ secrets.METAPORT_TOKEN }}
-          METAPORT_IDENTIFIER: ${{ secrets.METAPORT_IDENTIFIER }}
-          METAPORT_DOMAIN: ${{ secrets.METAPORT_DOMAIN }}
-          METAPORT_ENVIRONMENT: ${{ secrets.METAPORT_ENVIRONMENT }}
-          VERSION: ${{ steps.ver.outputs.version }}
+          APP_IDENTIFIER: ${{ secrets.METAPORT_APP_IDENTIFIER }}
+          APP_ENVIRONMENT: ${{ secrets.METAPORT_APP_ENVIRONMENT }}
+          APP_DOMAIN: ${{ secrets.METAPORT_APP_DOMAIN }}
+          APP_VERSION: ${{ steps.ver.outputs.version }}
+          APP_API_TOKEN: ${{ secrets.METAPORT_APP_API_TOKEN }}
+          METAPORT_SERVER: ${{ secrets.METAPORT_SERVER }}
         run: |
           jq -n \
-            --arg identifier  "$METAPORT_IDENTIFIER" \
-            --arg environment "$METAPORT_ENVIRONMENT" \
-            --arg domain      "$METAPORT_DOMAIN" \
-            --arg version     "$VERSION" \
+            --arg identifier  "$APP_IDENTIFIER" \
+            --arg environment "$APP_ENVIRONMENT" \
+            --arg domain      "$APP_DOMAIN" \
+            --arg version     "$APP_VERSION" \
             '{
               format: "MetaportIngest",
               version: "1.0",
@@ -42,6 +43,6 @@ jobs:
           curl --fail-with-body -sS -X PUT \
             -H "User-Agent: metaport-ci" \
             -H "Content-Type: application/json" \
-            -H "Authorization: Basic ${METAPORT_TOKEN}" \
+            -H "Authorization: Basic ${APP_API_TOKEN}" \
             -d @payload.json \
-            https://metaport.dev/api/v1/app/
+            ${METAPORT_SERVER}/api/v1/app/

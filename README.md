@@ -1,0 +1,61 @@
+# Metaport Boilerplate
+
+A **GitHub specific** boilerplate Silverstripe 6 application wired up to notify a [Metaport](https://getmetaport.com/) server whenever a tagged release is pushed to GitHub.
+
+* Metaport docs
+* Metaport Gitlab
+
+There are several ways to ingest EOL data and Dependency+Vulnerability data:
+
+| EOL Components | Comments | Dependencies &amp; Vulnerabilities | Comments |
+|---|---|---|---|
+| VCS+CI | Assumes Helm or Terraform | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer`, etc |
+| VCS+CI | "" | OWASP [DependencyTrack](https://dependencytrack.org) | In-tool (DT) data-source configuration e.g. NVD |
+| VCS+CI | "" | [Dependabot](https://dependabot.com) | N/A |
+| Agent | Limited to `Runtime`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer`, etc |
+| Agent | "" | OWASP [DependencyTrack](https://dependencytrack.org) | In-tool (DT) data-source configuration e.g. NVD |
+| Agent | "" | [Dependabot](https://dependabot.com) | N/A |
+
+## Release signalling
+
+The workflow at [.github/workflows/metaport-release.yml](.github/workflows/metaport-release.yml) triggers on any tag matching `v*` (e.g. `v1.2.3`) and `PUT`s a `MetaportIngest` payload to `https://metaport.dev/api/v1/app/`.
+
+The payload schema, endpoint, and required headers are defined in the [Metaport EOL Manager docs](https://docs.metaport.sh/en/eolmanager/).
+
+### Required GitHub secrets
+
+Configure these under **Settings → Secrets and variables → Actions**:
+
+| Secret | Source | Notes |
+|---|---|---|
+| `METAPORT_TOKEN` | Developer Export | Used as the `Authorization: Basic <token>` header. Token only needs `api` and `read` scopes. |
+| `METAPORT_IDENTIFIER` | Developer Export | The application UUID (e.g. `c8a96227-3460-48cb-8a86-34a4b5c3283a`). |
+| `METAPORT_DOMAIN` | Developer Export | Application domain (e.g. `my-app.xyz`). |
+| `METAPORT_ENVIRONMENT` | Developer Export | Typically `PROD`. |
+
+The `version` field is derived from the pushed tag (leading `v` stripped); `stack` is hard-coded to `PHP/Composer` and `source` to `CI`.
+
+Note:
+
+1. When creating an application record in Metaport, set the "Source" field to `CI`.
+
+### Generating a Developer Export
+
+The Developer Export bundles the identifier, domain, environment, and API token needed by this workflow. To generate one (per the [Metaport quickstart](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers)):
+
+1. Log in to Metaport with any user role.
+2. Navigate to the team that owns this application.
+3. Open the **Applications** tab.
+4. Click the row for this application.
+5. Click the **Get Developer Export** icon.
+
+The exported file contains **unencrypted** credentials — transfer it via a password vault or other secure channel, never email or chat.
+
+## Cutting a release
+
+```sh
+git tag v1.2.3
+git push origin v1.2.3
+```
+
+The workflow will fire on the tag push and notify Metaport. Check the Github Actions tab for the request status.

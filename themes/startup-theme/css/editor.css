@@ -1,0 +1,18 @@
+/**
+ * This CSS file is specifically for the CMS TinyMCE editor
+ */
+@import 'fonts.css';
+@import 'base.css';
+@import 'colors.css';
+@import 'typography.css';
+
+/**
+ * CMS TinyMCE editor field styles
+ */
+.mce-content-body {
+    padding: 1rem;
+
+    &:focus-visible {
+        outline: none;
+    }
+}

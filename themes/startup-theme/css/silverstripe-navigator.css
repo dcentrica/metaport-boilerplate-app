@@ -1,0 +1,13 @@
+/* Overrides styling for SiverstripeNavigator */
+
+div#SilverStripeNavigator {
+    border-top: 0;
+}
+
+div#SilverStripeNavigatorMessage {
+    top: 10rem;
+    background: #000A;
+    /* one less than mobile nav */
+    z-index: 29;
+    pointer-events: none;
+}

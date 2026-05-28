@@ -1,0 +1,35 @@
+/* Import font files */
+@font-face {
+    font-display: swap;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 200 900;
+    src: url('../fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2-variations');
+    src: url('../fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2') tech('variations');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 200 900;
+    src: url('../fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2-variations');
+    src: url('../fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2') tech('variations');
+}
+
+/* Set font variables */
+:root {
+    --font-family-sans-serif: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    --font-family-base: var(--font-family-sans-serif);
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-base: var(--font-weight-regular);
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-size-base: 1.6rem;
+    --font-size-large: 1.8rem;
+    --font-size-small: 1.4rem;
+    --line-height-base: 1.5;
+}

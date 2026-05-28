@@ -1,0 +1,97 @@
+/* Button styles */
+.button {
+    --button-background-color: var(--color-charcoal);
+    --button-border-color: var(--color-charcoal);
+    --button-outline-color: var(--color-charcoal);
+    --button-color: var(--color-white);
+
+    align-items: center;
+    background-color: var(--button-background-color);
+    border: 0.2rem solid var(--button-border-color);
+    border-radius: 0.4rem;
+    color: var(--button-color);
+    display: inline-flex;
+    gap: 0.3rem;
+    justify-content: center;
+    line-height: 1.38;
+    outline-color: var(--button-outline-color);
+    padding: 1.4rem 2.5rem;
+    text-decoration: none;
+    transition: var(--transition-color);
+    width: fit-content;
+
+    &:hover {
+        --button-background-color: var(--color-bright-blue);
+        --button-border-color: var(--color-bright-blue);
+        --button-color: var(--color-white);
+    }
+}
+
+/* On dark background */
+.button--on-dark {
+    --button-background-color: var(--color-white);
+    --button-border-color: var(--color-white);
+    --button-color: var(--color-charcoal);
+    --button-outline-color: var(--color-white);
+
+    &:hover {
+        --button-background-color: var(--color-line-grey);
+        --button-border-color: var(--color-line-grey);
+        --button-color: var(--color-charcoal);
+    }
+}
+
+/* Secondary */
+.button--secondary {
+    --button-background-color: transparent;
+    --button-border-color: var(--color-charcoal);
+    --button-color: var(--color-charcoal);
+
+    &:hover {
+        --button-background-color: var(--color-line-grey);
+        --button-border-color: var(--color-charcoal);
+        --button-color: var(--color-charcoal);
+    }
+}
+
+/* Secondary on dark background */
+.button--secondary-on-dark {
+    --buton-background-color: transparent;
+    --button-border-color: var(--color-white);
+    --button-color: var(--color-white);
+    --button-outline-color: var(--color-white);
+
+    &:hover {
+        --button-background-color: var(--color-white);
+        --button-border-color: var(--color-white);
+        --button-color: var(--color-charcoal);
+    }
+}
+
+/* External link icon */
+.button--external {
+    &::after {
+        background-color: var(--button-color);
+        content: '';
+        height: 1rem;
+        mask-image: url('../images/arrow--external-link.svg');
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        transition: var(--transition-color);
+        width: 1rem;
+    }
+}
+
+/* Skip to main content button */
+.button--skip {
+    font-size: 1.6rem;
+    left: -100%;
+    position: fixed;
+    top: -100%;
+
+    &:focus {
+        left: 1rem;
+        top: 1rem;
+    }
+}

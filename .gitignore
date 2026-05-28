@@ -1,0 +1,14 @@
+.env
+
+public/resources/*
+public/_resources/*
+public/assets/*
+public/*png
+public/_graphql/*
+
+.phpunit.result.cache
+.graphql-generated
+.vscode
+CLAUDE.md
+
+vendor/*

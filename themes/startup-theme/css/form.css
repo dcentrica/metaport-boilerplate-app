@@ -1,0 +1,134 @@
+/** ----------------------------------------------------------
+ *
+ * This stylesheet includes both generic form styles and
+ *    additional form styles for the User Defined Form Module.
+ *
+ ** ------------------------------------------------------- */
+
+form {
+    --max-width: 100%;
+    /* important required to override userform module styling */
+    max-width: var(--max-width) !important;
+
+    @media (min-width: 750px) {
+        --max-width: 500px;
+    }
+
+    div.field {
+        margin: 0.667em 0 1em;
+    }
+
+    fieldset {
+        border: 0;
+    }
+
+    label.left {
+        font-weight: bold;
+    }
+
+    label.right {
+        font-size: 0.9em;
+    }
+
+    input.text,
+    textarea,
+    select {
+        width: 100%;
+        max-width: var(--max-width);
+        padding: 0.4em 0.333em;
+        font-size: 1.5rem;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-line-grey);
+    }
+
+    input[disabled],
+    textarea[disabled],
+    select[disabled] {
+        background-color: var(--color-pale-grey);
+        border: 1px solid var(--color-line-grey);
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    /* pseudo element adds an asterisk to a required fields label */
+    input[required] ~ label.left:after,
+    input[required] ~ legend.left:after,
+    /* user defined form uses .requiredField css class */
+    .requiredField label.left:after,
+    .requiredField legend.left:after {
+        color: var(--color-error-dark);
+        content: "*";
+        font-size: 0.8em;
+        font-weight: normal;
+        padding-left: 0.333em;
+    }
+
+    /* Radio and Checkbox */
+    .checkbox label.right,
+    .radio label.right {
+        float: left;
+    }
+
+    /* Buttons */
+    a.btn,
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    .Actions .action {
+        display: inline-block;
+        border-radius: 4px;
+        padding: 0.333em 0.833em;
+        margin-top: 0.556em;
+        margin-bottom: 0.556em;
+        border: none;
+
+        &:not([disabled]) {
+            cursor: pointer;
+        }
+    }
+
+    /* Messages */
+    .message {
+        margin: 0.556em 0;
+        display: block;
+        max-width: var(--max-width);
+        clear: left;
+    }
+
+    .message,
+    .error-container {
+        padding: 0.278em 0.556em;
+        background-color: var(--color-warning-light);
+        border: 1px solid var(--color-warning-dark);
+        border-radius: 3px;
+
+        &.good {
+            background-color: var(--color-good-light);
+            border-color: var(--color-good-dark);
+        }
+
+        &.bad,
+        &.required,
+        &.error,
+        &.error-container {
+            background-color: var(--color-error-light);
+            border-color: var(--color-error-dark);
+        }
+    }
+
+    /* invalid fields */
+    input:invalid,
+    textarea:invalid {
+        border-radius: 1px;
+        box-shadow: 0px 0px 0.5px 1px var(--color-error);
+    }
+
+    /* user forms heading field */
+    .FormHeading {
+        clear: both;
+        padding-top: 0.68em;
+    }
+}
+

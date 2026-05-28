@@ -1,0 +1,24 @@
+/**
+ * Breadcrumb styles
+ */
+.breadcrumbs {
+    dd,
+    ol,
+    ul {
+        list-style: none;
+    }
+
+    li {
+        margin-left: 0;
+    }
+}
+
+.breadcrumbs__list {
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.breadcrumbs__list-delimiter {
+    color: var(--color-grey);
+    padding: 0 0.8rem;
+}

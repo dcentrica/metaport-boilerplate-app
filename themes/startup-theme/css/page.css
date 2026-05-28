@@ -1,0 +1,73 @@
+/**
+ * Page styles
+ */
+
+.page {
+    @media (min-width: 992px)  {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.page__content {
+    max-width: 76rem;
+}
+
+.page-menu {
+    margin-top: 7.3rem;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        margin: 0 4rem;
+        width: 27rem;
+        flex-shrink: 1;
+    }
+}
+
+.page-menu__heading {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 0.1rem solid var(--color-line-grey);
+
+    @media (min-width: 992px) {
+        border-top: none;
+        padding-top: 0;
+    }
+}
+
+.page-menu__list {
+    border-bottom: 0.1rem solid var(--color-line-grey);
+    padding-bottom: 2.5rem;
+    display: grid;
+    gap: 1.7rem;
+    list-style: none;
+
+    @media (min-width: 992px) {
+        padding-top: 2.5rem;
+        border-top: 0.1rem solid var(--color-line-grey);
+    }
+}
+
+.page-menu__child-list {
+  display: grid;
+  font-size: 1.4rem;
+  gap: 1.7rem;
+  list-style: none;
+  padding-top: 1.7rem;
+}
+
+.page-menu__list-item {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.page-menu__list-item--current {
+    font-weight: var(--font-weight-bold);
+    border-left: 0.2rem solid var(--color-charcoal);
+}
+
+.page-menu__list-item--child {
+    font-weight: var(--font-weight-base);
+}

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.metaport.sh)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}

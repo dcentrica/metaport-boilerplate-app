@@ -1,0 +1,57 @@
+/* Layout styles that affect the overall layout of all pages */
+
+
+body {
+    /* Ensures the body will be at least viewport height even in short pages. */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    /*
+      Ensure the main section stretches to fill any empty space.
+      This pushes the footer down to the bottom of the viewport in short pages.
+    */
+    flex-grow: 1;
+}
+
+/* The container class enforces max-width and should wrap all elements */
+.container {
+    max-width: 123rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @media (min-width: 750px)  {
+        padding: 0 3rem;
+    }
+}
+
+.container--header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container--page {
+    margin: 4.4rem auto;
+
+    @media (min-width: 750px)  {
+        margin: 5.8rem auto;
+    }
+
+    @media (min-width: 992px) {
+        margin: 7rem auto;
+    }
+}
+
+.container--narrow {
+    @media (min-width: 750px) {
+        max-width: 77rem;
+    }
+
+    @media (min-width: 992px) {
+        max-width: 83rem;
+    }
+}

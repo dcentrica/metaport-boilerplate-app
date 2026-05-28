@@ -8,14 +8,14 @@ A **GitHub specific** boilerplate Silverstripe 6 application wired up to notify 
 
 There are several ways to ingest EOL data and Dependency+Vulnerability data:
 
-| EOL&nbsp;Components | Comments | Dependencies&nbsp;&amp;&nbsp;Vulnerabilities | Comments |
-|---|---|---|---|
-| VCS+CI | Assumes Helm or Terraform. Supports `Runtime`, `Database`, `Webserver`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc |
-| VCS+CI |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) |
-| VCS+CI |  | [Dependabot](https://dependabot.com) | N/A |
-| Agent | Limited to `Runtime`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc |
-| Agent |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) |
-| Agent |  | [Dependabot](https://dependabot.com) | N/A |
+| EOL&nbsp;Components | Comments | Dependencies&nbsp;&amp;&nbsp;Vulnerabilities | Comments | Metaport&nbsp;Source |
+|---|---|---|---|---|
+| VCS+CI | Assumes Helm or Terraform. Supports `Runtime`, `Database`, `Webserver`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc | `CI` |
+| VCS+CI |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) | `CI` |
+| VCS+CI |  | [Dependabot](https://dependabot.com) | N/A | `CI` |
+| Agent | Limited to `Runtime`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc | `Cron` |
+| Agent |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) | `Cron` |
+| Agent |  | [Dependabot](https://dependabot.com) | N/A | `Cron` |
 
 ## Release signalling
 

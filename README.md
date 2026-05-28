@@ -8,14 +8,14 @@ A **GitHub specific** boilerplate Silverstripe 6 application wired up to notify 
 
 There are several ways to ingest EOL data and Dependency+Vulnerability data:
 
-| EOL Components | Comments | Dependencies & Vulnerabilities | Comments |
+| EOL&nbsp;Components | Comments | Dependencies&nbsp;&amp;&nbsp;Vulnerabilities | Comments |
 |---|---|---|---|
 | VCS+CI | Assumes Helm or Terraform. Supports `Runtime`, `Database`, `Webserver`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc |
-| VCS+CI | "" | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) |
-| VCS+CI | "" | [Dependabot](https://dependabot.com) | N/A |
+| VCS+CI |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) |
+| VCS+CI |  | [Dependabot](https://dependabot.com) | N/A |
 | Agent | Limited to `Runtime`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc |
-| Agent | "" | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) |
-| Agent | "" | [Dependabot](https://dependabot.com) | N/A |
+| Agent |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) |
+| Agent |  | [Dependabot](https://dependabot.com) | N/A |
 
 ## Release signalling
 
@@ -48,12 +48,14 @@ Metaport requires a minimal JSON payload to be sent for every action-trigger. Th
 
 Configure these under **Settings → Secrets and variables → Actions**:
 
+
 | Secret | Source | Notes |
 |---|---|---|
-| `METAPORT_TOKEN` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | Used as the `Authorization: Basic <token>` header. Token only needs `api` and `read` scopes. |
-| `METAPORT_IDENTIFIER` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | The application UUID (e.g. `c8a96227-3460-48cb-8a86-34a4b5c3283a`). |
-| `METAPORT_DOMAIN` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | Application domain (e.g. `my-app.xyz`). |
-| `METAPORT_ENVIRONMENT` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | Typically `PROD`. |
+| `METAPORT_APP_API_TOKEN` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | Used as the `Authorization: Basic <token>` header. Token only needs `api` and `read` scopes. |
+| `METAPORT_APP_IDENTIFIER` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | The application UUID (e.g. `c8a96227-3460-48cb-8a86-34a4b5c3283a`). |
+| `METAPORT_APP_DOMAIN` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | Application domain (e.g. `my-app.xyz`). |
+| `METAPORT_APP_ENVIRONMENT` | [Developer Export](https://docs.metaport.sh/en/quickstart/#export-app-credentials-for-developers) | e.g. `PROD`, `DEV`, `STAGE` etc. |
+| `METAPORT_SERVER` | Use your own host for on-prem set-ups | N/A |
 
 The `version` field is derived from the pushed tag (leading `v` stripped); `stack` is hard-coded to `PHP/Composer` and `source` to `CI`.
 

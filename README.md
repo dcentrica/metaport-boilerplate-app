@@ -6,11 +6,10 @@ A **GitHub specific** boilerplate Silverstripe 6 application wired up to notify 
 * [Metaport CE](https://gitlab.com/dcentrica/metaport/metaport-server)
 * [Metaport on YouTube](https://youtube.com/@metaport)
 
-There are several ways to ingest EOL data and Dependency+Vulnerability data:
+There are several combinations you can use to ingest both EOL data and Dependency+Vulnerability data in Metaport:
 
 | EOL&nbsp;Components | Comments | Dependencies&nbsp;&amp;&nbsp;Vulnerabilities | Comments | Metaport&nbsp;Source |
 |---|---|---|---|---|
-| VCS+CI | Assumes Helm or Terraform. Supports `Runtime`, `Database`, `Webserver`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc | `CI` |
 | VCS+CI |  | [DependencyTrack](https://dependencytrack.org) | Multiple sources (NVD, Sonatype, Github, OSV, & VulnDB) | `CI` |
 | VCS+CI |  | [Dependabot](https://dependabot.com) | N/A | `CI` |
 | Agent | Limited to `Runtime`, `Framework`, `OS` | Agent | Limited to package ecosystem capabilities e.g. `npm`, `composer` etc | `Cron` |
